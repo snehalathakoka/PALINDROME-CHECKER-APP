@@ -1,44 +1,50 @@
 /**
  * ============================================================
- * MAIN CLASS - PalindromeCheckerApp
+ * MAIN CLASS - UseCase2palindromecheckerapp
  * ============================================================
  *
- * Use Case 1: Application Entry & Welcome Message
+ * Use Case 2: Hardcoded Palindrome Validation
  *
  * Description:
- * This class represents the entry point of the
- * Palindrome Checker Management System.
+ * This class demonstrates basic palindrome validation
+ * using a hardcoded string value.
  *
  * At this stage, the application:
- * - Starts execution from the main() method
- * - Displays a welcome message
- * - Shows application version
+ * - Stores a predefined string
+ * - Compares characters from both ends
+ * - Determines whether the string is a palindrome
+ * - Displays the result on the console
  *
- * No palindrome logic is implemented yet.
- *
- * The goal is to establish a clear startup flow.
+ * This use case introduces fundamental comparison logic
+ * before using advanced data structures.
  *
  * @author Developer
- * @version 1.0
+ * @version 2.0
  */
 public class palindromecheckerapp {
 
     /**
-     * Application entry point.
-     *
-     * This is the first method executed by the JVM
-     * when the program starts.
+     * Application entry point for UC2.
      *
      * @param args Command-line arguments
      */
     public static void main(String[] args) {
-        String appName = "palindrome checker app";
-        String appVersion = "Version 1.0";
+        String input = "madam";  // Hardcoded palindrome string
+        boolean isPalindrome = true;
 
-        System.out.println("=====================================");
-        System.out.println("Welcome to " + appName + "!");
-        System.out.println(appVersion);
-        System.out.println("=====================================");
-        System.out.println("Program starting...");
+        // Loop only till half of the string length
+        for (int i = 0; i < input.length() / 2; i++) {
+            if (input.charAt(i) != input.charAt(input.length() - 1 - i)) {
+                isPalindrome = false;
+                break;
+            }
+        }
+
+        System.out.println("Input String: " + input);
+        if (isPalindrome) {
+            System.out.println("Result: The string is a palindrome.");
+        } else {
+            System.out.println("Result: The string is NOT a palindrome.");
+        }
     }
 }
