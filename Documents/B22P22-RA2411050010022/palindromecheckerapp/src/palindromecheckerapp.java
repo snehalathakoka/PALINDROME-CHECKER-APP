@@ -1,6 +1,6 @@
 /**
  * ============================================================
- * MAIN CLASS - palindromecheckerapp
+ * MAIN CLASS - UseCase3PalindromeCheckerApp
  * ============================================================
  *
  * Use Case 3: Reverse String Based Palindrome Check
