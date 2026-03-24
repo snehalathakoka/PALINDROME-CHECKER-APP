@@ -1,34 +1,28 @@
-import java.util.Stack;
-
 public class Main {
 
     public static void main(String[] args) {
         String input = "level";
-        PalindromeStrategy strategy = new StackStrategy();
-        boolean result = strategy.check(input);
-        System.out.println("Input : " + input);
-        System.out.println("Is Palindrome? : " + result);
-    }
-}
 
-interface PalindromeStrategy {
-    boolean check(String input);
-}
+        long start = System.nanoTime();
 
-class StackStrategy implements PalindromeStrategy {
+        int begin = 0;
+        int end = input.length() - 1;
+        boolean isPalindrome = true;
 
-    public boolean check(String input) {
-        java.util.Stack<Character> stack = new java.util.Stack<>();
-
-        for (char c : input.toCharArray()) {
-            stack.push(c);
-        }
-
-        for (char c : input.toCharArray()) {
-            if (c != stack.pop()) {
-                return false;
+        while (begin < end) {
+            if (input.charAt(begin) != input.charAt(end)) {
+                isPalindrome = false;
+                break;
             }
+            begin++;
+            end--;
         }
-        return true;
+
+        long finish = System.nanoTime();
+        long executionTime = finish - start;
+
+        System.out.println("Input : " + input);
+        System.out.println("Is Palindrome? : " + isPalindrome);
+        System.out.println("Execution Time : " + executionTime + " ns");
     }
 }
